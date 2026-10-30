@@ -14,6 +14,14 @@ class ExampleTest extends TestCase
     {
         $response = $this->get('/');
 
-        $response->assertStatus(200);
+        $response
+            ->assertOk()
+            ->assertSee('Good morning, Farhad')
+            ->assertSee('Recent orders')
+            ->assertSee('Revenue overview')
+            ->assertSee(now()->format('l, F j'))
+            ->assertSee('data-theme-toggle', false)
+            ->assertSee('northstar-theme', false)
+            ->assertSee('data-sidebar-toggle', false);
     }
 }
