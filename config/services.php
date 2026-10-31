@@ -35,4 +35,6 @@ return [
         ],
     ],
 
+    'admin_login_captcha_enabled' => env('ADMIN_LOGIN_CAPTCHA_ENABLED', true),
+
 ];

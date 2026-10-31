@@ -29,7 +29,7 @@
                 data-sidebar
                 aria-label="Main navigation"
             >
-                <a href="{{ route('dashboard') }}" class="flex h-[76px] items-center gap-3 border-b border-white/[0.07] px-6">
+                <a href="{{ route('admin.dashboard') }}" class="flex h-[76px] items-center gap-3 border-b border-white/[0.07] px-6">
                     <span class="flex size-10 items-center justify-center rounded-[14px] bg-gradient-to-br from-blue-400 to-indigo-500 text-white shadow-lg shadow-blue-500/25">
                         <svg viewBox="0 0 24 24" fill="none" class="size-[22px]" aria-hidden="true">
                             <path d="M4 13.2 9.5 4l3.2 5.3L20 6l-5.5 14-3.1-5.1L4 13.2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -45,25 +45,25 @@
                 <div class="px-4 pb-5 pt-7">
                     <p class="mb-3 px-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">Workspace</p>
                     <nav class="space-y-1">
-                        <a href="{{ route('dashboard') }}" class="flex items-center gap-3 rounded-xl bg-blue-500/15 px-3 py-2.5 text-[13px] font-semibold text-blue-300 ring-1 ring-inset ring-blue-400/10">
+                        <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 rounded-xl bg-blue-500/15 px-3 py-2.5 text-[13px] font-semibold text-blue-300 ring-1 ring-inset ring-blue-400/10">
                             <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.7"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.7"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.7"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.7"/></svg>
                             <span>Overview</span>
                             <span class="ml-auto size-1.5 rounded-full bg-blue-300"></span>
                         </a>
-                        <a href="{{ route('dashboard') }}#orders" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
+                        <a href="{{ route('admin.dashboard') }}#orders" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
                             <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true"><path d="M5 7.5h14l1 12H4l1-12Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
                             <span>Orders</span>
                             <span class="ml-auto rounded-md bg-white/[0.08] px-1.5 py-0.5 text-[10px] text-slate-400">12</span>
                         </a>
-                        <a href="{{ route('dashboard') }}#customers" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
+                        <a href="{{ route('admin.dashboard') }}#customers" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
                             <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true"><path d="M16 20v-1.5a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V20m7.5-9a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm6-7.6a4 4 0 0 1 0 7.7m4.5 8.9v-1.5a4 4 0 0 0-3-3.9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
                             <span>Customers</span>
                         </a>
-                        <a href="{{ route('dashboard') }}#products" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
+                        <a href="{{ route('admin.dashboard') }}#products" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
                             <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m4.5 7.8 7.5 4.4 7.5-4.4M12 12.5V21m-4-15.7 8 4.6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
                             <span>Products</span>
                         </a>
-                        <a href="{{ route('dashboard') }}#analytics" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
+                        <a href="{{ route('admin.dashboard') }}#analytics" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
                             <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true"><path d="M4 19V5m0 14h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m7 15 4-4 3 2 5-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 7h3v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             <span>Analytics</span>
                             <span class="ml-auto rounded-md bg-indigo-400/10 px-1.5 py-0.5 text-[9px] font-semibold text-indigo-300">NEW</span>
@@ -74,11 +74,11 @@
                 <div class="px-4 pt-1">
                     <p class="mb-3 px-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">Manage</p>
                     <nav class="space-y-1">
-                        <a href="{{ route('dashboard') }}#team" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
+                        <a href="{{ route('admin.dashboard') }}#team" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
                             <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M8 9h8M8 13h5m-5 3h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
                             <span>Team & access</span>
                         </a>
-                        <a href="{{ route('dashboard') }}#settings" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
+                        <a href="{{ route('admin.dashboard') }}#settings" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
                             <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true"><path d="M12 15.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Z" stroke="currentColor" stroke-width="1.7"/><path d="m19.4 15 .1.1a1.8 1.8 0 1 1-2.5 2.5l-.1-.1a1.8 1.8 0 0 0-3.1 1.3v.2a1.8 1.8 0 1 1-3.6 0v-.2a1.8 1.8 0 0 0-3.1-1.3l-.1.1a1.8 1.8 0 1 1-2.5-2.5l.1-.1a1.8 1.8 0 0 0-1.3-3.1h-.2a1.8 1.8 0 1 1 0-3.6h.2a1.8 1.8 0 0 0 1.3-3.1l-.1-.1a1.8 1.8 0 1 1 2.5-2.5l.1.1a1.8 1.8 0 0 0 3.1-1.3v-.2a1.8 1.8 0 1 1 3.6 0v.2a1.8 1.8 0 0 0 3.1 1.3l.1-.1a1.8 1.8 0 1 1 2.5 2.5l-.1.1a1.8 1.8 0 0 0 1.3 3.1h.2a1.8 1.8 0 1 1 0 3.6h-.2a1.8 1.8 0 0 0-1.3 3.1Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             <span>Settings</span>
                         </a>
@@ -167,6 +167,15 @@
                                 </span>
                                 <svg viewBox="0 0 16 16" fill="none" class="hidden size-3 text-slate-400 sm:block" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </button>
+                            <a
+                                href="{{ route('admin.logout') }}"
+                                class="inline-flex h-10 items-center gap-2 rounded-xl border border-slate-200 px-3 text-xs font-semibold text-slate-600 transition hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700 focus:outline-none focus:ring-4 focus:ring-rose-500/10"
+                            >
+                                <svg viewBox="0 0 24 24" fill="none" class="size-4" aria-hidden="true">
+                                    <path d="M10 17l5-5-5-5m5 5H3m9-9h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="hidden sm:inline">Logout</span>
+                            </a>
                         </div>
                     </div>
                 </header>
