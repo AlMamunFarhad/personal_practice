@@ -15,7 +15,7 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
 
     Route::group(['prefix' => 'employee', 'as' => 'employee.'], function () {
         Route::controller(EmployeeController::class)->group(function () {
-            Route::get(Employee::LIST[URI])->name('list');
+            Route::get(Employee::LIST[URI], 'index')->name('list');
             Route::get(Employee::ADD[URI], 'getAddView')->name('add-new');
             Route::post(Employee::ADD[URI], 'add');
 

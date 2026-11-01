@@ -216,7 +216,7 @@
                             {{-- Employees Submenu --}}
                             <div id="employee-submenu"
                                 class="{{ $employeeMenuActive ? '' : 'hidden' }} ml-4 mt-1 space-y-1 border-l border-white/10 pl-3">
-                                <a href="{{ route('admin.employee.add-new') }}">Add Employee</a>
+                                {{-- <a href="{{ route('admin.employee.add-new') }}">Add Employee</a> --}}
 
 
                                 {{-- Employee Role Setup --}}
@@ -229,13 +229,12 @@
                                 </a> --}}
 
                                 {{-- Employee List --}}
-                                {{-- <a href="{{ route('admin.employee.list') }}"
+                                <a href="{{ route('admin.employee.list') }}"
                                     class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[12px] transition
-                                   {{ Request::is('admin/employee/' . Employee::LIST [URI]) || Request::is('admin/employee/' . Employee::ADD[URI]) || Request::is('admin/employee/' . Employee::UPDATE[URI] . '*') ? 'bg-blue-500/15 text-blue-300' : 'text-slate-400 hover:bg-white/[0.06] hover:text-white' }}">
-
+                                   {{-- {{ Request::is('admin/employee/' . Employee::LIST[URI]) || Request::is('admin/employee/' . Employee::ADD[URI]) || Request::is('admin/employee/' . Employee::UPDATE[URI] . '*') ? 'bg-blue-500/15 text-blue-300' : 'text-slate-400 hover:bg-white/[0.06] hover:text-white' }}"> --}}
                                     <span class="size-1.5 rounded-full bg-current"></span>
                                     <span>{{ translate('employees') }}</span>
-                                </a> --}}
+                                </a>
 
                             </div>
                         </div>

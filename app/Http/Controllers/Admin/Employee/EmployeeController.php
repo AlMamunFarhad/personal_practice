@@ -12,6 +12,7 @@ use Flasher\Toastr\Laravel\Facade\Toastr;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use App\Enums\WebConfigKey;
 
 class EmployeeController extends BaseController
 {

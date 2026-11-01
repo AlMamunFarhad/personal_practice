@@ -36,15 +36,24 @@ class BusinessSettingSeeder extends Seeder
         );
 
         DB::table('business_settings')->updateOrInsert(
-        ['type' => 'recaptcha'],
-        [
-            'value' => json_encode([
-                'status' => 0,
-                'site_key' => '',
-                'secret_key' => '',
-            ]),
-            'updated_at' => now(),
-        ]
-    );
+            ['type' => 'recaptcha'],
+            [
+                'value' => json_encode([
+                    'status' => 0,
+                    'site_key' => '',
+                    'secret_key' => '',
+                ]),
+                'updated_at' => now(),
+            ]
+        );
+
+        DB::table('business_settings')->updateOrInsert(
+            ['type' => 'pagination_limit'],
+            [
+                'value' => '10',
+                'updated_at' => now(),
+            ]
+        );
+
     }
 }

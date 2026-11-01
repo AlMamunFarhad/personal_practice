@@ -88,13 +88,13 @@
                         </summary>
                         <ul class="absolute right-0 z-20 mt-2 min-w-40 rounded-xl border border-slate-200 bg-white p-1.5 shadow-lg dark:border-slate-700 dark:bg-[#121d30]">
                             <li>
-                                <a
+                                {{-- <a
                                     class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 transition hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
                                     href="{{ route('admin.employee.export', ['role' => request('admin_role_id'), 'searchValue' => request('searchValue')]) }}"
                                 >
                                     <img width="14" src="{{ asset('assets/back-end/img/excel.png') }}" alt="">
                                     {{ translate('excel') }}
-                                </a>
+                                </a> --}}
                             </li>
                         </ul>
                     </details>
@@ -153,7 +153,7 @@
                                             {{ translate('admin') }}
                                         </span>
                                     @else
-                                        <form
+                                        {{-- <form
                                             action="{{ route('admin.employee.status') }}"
                                             method="post"
                                             id="employee-id-{{ $employee['id'] }}-form"
@@ -180,7 +180,7 @@
                                                 >
                                                 <span class="switcher_control relative h-6 w-11 rounded-full bg-slate-300 transition peer-checked:bg-blue-600 peer-focus-visible:ring-4 peer-focus-visible:ring-blue-500/20 after:absolute after:left-0.5 after:top-0.5 after:size-5 after:rounded-full after:bg-white after:shadow after:transition-transform after:content-[''] peer-checked:after:translate-x-5 dark:bg-slate-600 dark:peer-checked:bg-blue-500"></span>
                                             </label>
-                                        </form>
+                                        </form> --}}
                                     @endif
                                 </td>
                                 <td class="whitespace-nowrap px-5 py-4 text-center">
@@ -189,7 +189,7 @@
                                             {{ translate('default') }}
                                         </span>
                                     @else
-                                        <div class="flex items-center justify-center gap-2">
+                                        {{-- <div class="flex items-center justify-center gap-2">
                                             <a
                                                 href="{{ route('admin.employee.update', [$employee['id']]) }}"
                                                 class="inline-flex size-9 items-center justify-center rounded-lg border border-blue-200 text-blue-700 transition hover:bg-blue-50 focus:outline-none focus:ring-4 focus:ring-blue-500/10 dark:border-blue-900/70 dark:text-blue-300 dark:hover:bg-blue-500/10"
@@ -211,7 +211,7 @@
                                                     <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7"/>
                                                 </svg>
                                             </a>
-                                        </div>
+                                        </div> --}}
                                     @endif
                                 </td>
                             </tr>
