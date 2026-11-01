@@ -12,6 +12,7 @@
         "php": "^8.3",
         "brian2694/laravel-toastr": "^5.61",
         "gregwar/captcha": "^1.1",
+        "intervention/image": "^4.2",
         "laravel/framework": "^13.17",
         "laravel/tinker": "^3.0",
         "yoeunes/toastr": "^3.3"
@@ -28,8 +29,10 @@
     },
     "autoload": {
         "files": [
-            "app/Utils/Settings.php",
-            "app/Utils/language.php"
+            "app/Utils/settings.php",
+            "app/Utils/language.php",
+            "app/Utils/constant.php",
+            "app/Utils/helpers.php"
         ],
         "psr-4": {
             "App\\": "app/",

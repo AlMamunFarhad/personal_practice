@@ -78,7 +78,7 @@
                         <div class="relative">
                             <input
                                 type="password"
-                                class="js-toggle-password h-12 w-full rounded-xl border border-slate-200 bg-white py-3 pl-4 pr-12 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-100 dark:placeholder:text-slate-500 dark:hover:border-slate-600 dark:focus:border-blue-400 dark:focus:ring-blue-400/10"
+                                class="h-12 w-full rounded-xl border border-slate-200 bg-white py-3 pl-4 pr-12 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-100 dark:placeholder:text-slate-500 dark:hover:border-slate-600 dark:focus:border-blue-400 dark:focus:ring-blue-400/10"
                                 name="password"
                                 id="signingAdminPassword"
                                 placeholder="{{ translate('8+_characters_required') }}"
@@ -86,7 +86,6 @@
                                 autocomplete="current-password"
                                 required
                                 data-msg="Your password is invalid. Please try again."
-                                data-hs-toggle-password-options='{"target":"#changePassTarget","defaultClass":"tio-hidden-outlined","showClass":"tio-visible-outlined","classChangeTarget":"#changePassIcon"}'
                             >
                             <div id="changePassTarget" class="absolute inset-y-0 right-0 flex items-center pr-1.5">
                                 <button

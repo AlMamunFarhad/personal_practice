@@ -10,6 +10,7 @@ use App\Http\Requests\Admin\LoginRequest;
 use App\Models\Admin;
 use App\Services\AdminService;
 use App\Traits\RecaptchaTrait;
+use Flasher\Toastr\Laravel\Facade\Toastr;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
@@ -188,7 +189,7 @@ class LoginController extends BaseController
     public function logout(): RedirectResponse
     {
         $this->adminService->logout();
-        session()->flash('success', translate('logged out successfully'));
+        Toastr::success(translate('logged out successfully'));
 
         return redirect()->route('login.form');
     }
