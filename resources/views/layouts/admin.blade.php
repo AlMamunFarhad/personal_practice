@@ -216,8 +216,6 @@
                             {{-- Employees Submenu --}}
                             <div id="employee-submenu"
                                 class="{{ $employeeMenuActive ? '' : 'hidden' }} ml-4 mt-1 space-y-1 border-l border-white/10 pl-3">
-                                {{-- <a href="{{ route('admin.employee.add-new') }}">Add Employee</a> --}}
-
 
                                 {{-- Employee Role Setup --}}
                                 {{-- <a href="{{ route('admin.custom-role.create') }}"
@@ -274,27 +272,6 @@
             </div>
 
             <div class="mt-auto p-4">
-                <div
-                    class="rounded-2xl border border-white/[0.08] bg-gradient-to-br from-white/[0.07] to-white/[0.025] p-4">
-                    <div class="mb-3 flex size-9 items-center justify-center rounded-xl bg-blue-400/15 text-blue-300">
-                        <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true">
-                            <path d="M12 3.5 14.3 9l5.7 2-5.7 2.3L12 19l-2.3-5.7L4 11l5.7-2L12 3.5Z"
-                                stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
-                            <path d="m19 16 .8 1.9 1.7.6-1.7.7L19 21l-.7-1.8-1.8-.7 1.8-.6L19 16Z"
-                                fill="currentColor" />
-                        </svg>
-                    </div>
-                    <p class="text-xs font-semibold text-white">Need a hand?</p>
-                    <p class="mt-1 text-[11px] leading-5 text-slate-400">Our support team is just a message away.</p>
-                    <a href="mailto:support@example.com"
-                        class="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-blue-300 hover:text-blue-200">
-                        Visit help center
-                        <svg viewBox="0 0 16 16" fill="none" class="size-3" aria-hidden="true">
-                            <path d="M3.3 8h9.4m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </a>
-                </div>
                 <div class="mt-4 flex items-center gap-3 border-t border-white/[0.07] px-1 pt-4">
                     <span
                         class="flex size-9 items-center justify-center rounded-full bg-gradient-to-br from-amber-200 to-orange-300 text-[11px] font-bold text-orange-900">FA</span>
@@ -418,6 +395,8 @@
         </div>
     </div>
     @yield('admin-runtime')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     @stack('script')
     <script>
         function toggleSidebarMenu(menuId, arrowId) {

@@ -17,12 +17,12 @@ class AdminAuthSeeder extends Seeder
     {
         AdminRole::updateOrCreate(
             ['id' => 1],
-            ['name' => 'Master Admin', 'status' => 1]
+            ['name' => 'Master Admin', 'status' => 1,]
         );
 
         AdminRole::updateOrCreate(
             ['id' => 2],
-            ['name' => 'Employee', 'status' => 1]
+            ['name' => 'Employee', 'status' => 1, 'module_access' => json_encode(['user_section',])]
         );
 
         Admin::updateOrCreate(

@@ -18,6 +18,12 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
             Route::get(Employee::LIST[URI], 'index')->name('list');
             Route::get(Employee::ADD[URI], 'getAddView')->name('add-new');
             Route::post(Employee::ADD[URI], 'add');
+            Route::get(Employee::VIEW[URI].'/{id}', 'getView')->name('view');
+            Route::get(Employee::UPDATE[URI].'/{id}', 'getUpdateView')->name('update');
+            Route::post(Employee::UPDATE[URI].'/{id}', 'update');
+            Route::post(Employee::STATUS[URI], 'updateStatus')->name('status');
+            Route::delete(Employee::DELETE[URI].'/{id}', 'delete')->name('delete');
+            Route::get(Employee::EXPORT[URI], 'exportList')->name('export');
 
         });
 

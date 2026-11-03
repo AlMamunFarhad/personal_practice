@@ -153,7 +153,7 @@
                                             {{ translate('admin') }}
                                         </span>
                                     @else
-                                        {{-- <form
+                                        <form
                                             action="{{ route('admin.employee.status') }}"
                                             method="post"
                                             id="employee-id-{{ $employee['id'] }}-form"
@@ -180,7 +180,7 @@
                                                 >
                                                 <span class="switcher_control relative h-6 w-11 rounded-full bg-slate-300 transition peer-checked:bg-blue-600 peer-focus-visible:ring-4 peer-focus-visible:ring-blue-500/20 after:absolute after:left-0.5 after:top-0.5 after:size-5 after:rounded-full after:bg-white after:shadow after:transition-transform after:content-[''] peer-checked:after:translate-x-5 dark:bg-slate-600 dark:peer-checked:bg-blue-500"></span>
                                             </label>
-                                        </form> --}}
+                                        </form>
                                     @endif
                                 </td>
                                 <td class="whitespace-nowrap px-5 py-4 text-center">
@@ -189,7 +189,7 @@
                                             {{ translate('default') }}
                                         </span>
                                     @else
-                                        {{-- <div class="flex items-center justify-center gap-2">
+                                         <div class="flex items-center justify-center gap-2">
                                             <a
                                                 href="{{ route('admin.employee.update', [$employee['id']]) }}"
                                                 class="inline-flex size-9 items-center justify-center rounded-lg border border-blue-200 text-blue-700 transition hover:bg-blue-50 focus:outline-none focus:ring-4 focus:ring-blue-500/10 dark:border-blue-900/70 dark:text-blue-300 dark:hover:bg-blue-500/10"
@@ -211,7 +211,26 @@
                                                     <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7"/>
                                                 </svg>
                                             </a>
-                                        </div> --}}
+                                            <form
+                                                action="{{ route('admin.employee.delete', ['id' => $employee['id']]) }}"
+                                                method="POST"
+                                                onsubmit="return confirm(this.dataset.confirm)"
+                                                data-confirm="{{ translate('Are_you_sure_to_delete_this') }}?"
+                                            >
+                                                @csrf
+                                                @method('DELETE')
+                                                <button
+                                                    type="submit"
+                                                    class="inline-flex size-9 items-center justify-center rounded-lg border border-rose-200 text-rose-600 transition hover:bg-rose-50 focus:outline-none focus:ring-4 focus:ring-rose-500/10 dark:border-rose-900/70 dark:text-rose-300 dark:hover:bg-rose-500/10"
+                                                    title="{{ translate('delete') }}"
+                                                    aria-label="{{ translate('delete') }}"
+                                                >
+                                                    <svg viewBox="0 0 24 24" fill="none" class="size-4" aria-hidden="true">
+                                                        <path d="M4 7h16m-10 4v6m4-6v6M5.5 7l1 14h11l1-14M9 7V4h6v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                        </div>
                                     @endif
                                 </td>
                             </tr>

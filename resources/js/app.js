@@ -71,6 +71,33 @@ document.addEventListener('click', (event) => {
     notificationPanel?.classList.add('hidden');
 });
 
+if (!window.jQuery) {
+    console.error('Employee status toggles require jQuery, but jQuery was not loaded.');
+} else {
+    window.jQuery(($) => {
+        $('.employee_id_form .switcher_input').on('change', function () {
+            const $statusToggle = $(this);
+            const confirmationMessage = this.checked
+                ? $statusToggle.data('on-title')
+                : $statusToggle.data('off-title');
+
+            if (!window.confirm(confirmationMessage)) {
+                this.checked = !this.checked;
+                return;
+            }
+
+            const form = this.form;
+
+            if (!form) {
+                console.error('Employee status toggle is not inside a form.');
+                return;
+            }
+
+            form.requestSubmit();
+        });
+    });
+}
+
 const orderSearch = document.querySelector('[data-order-search]');
 
 orderSearch?.addEventListener('input', () => {
