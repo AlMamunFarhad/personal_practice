@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Utils;
+
 class Helpers
 {
     public static function module_permission_check($mod_name)

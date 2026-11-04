@@ -16,7 +16,7 @@
         "laravel/framework": "^13.17",
         "laravel/tinker": "^3.0",
         "maatwebsite/excel": "*",
-        "yoeunes/toastr": "^3.3"
+        "php-flasher/flasher-toastr-laravel": "^2.6"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -30,10 +30,10 @@
     },
     "autoload": {
         "files": [
+            "app/Utils/Helpers.php",
             "app/Utils/settings.php",
             "app/Utils/language.php",
             "app/Utils/constant.php",
-            "app/Utils/helpers.php",
             "app/Utils/file_path.php"
         ],
         "psr-4": {
