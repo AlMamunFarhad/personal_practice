@@ -7960,4 +7960,12 @@
   'role_id_is_required' => 'Role id is required',
   'employee_deleted_successfully' => 'Employee deleted successfully',
   'Status_Updated' => 'Status Updated',
+  'employee_List' => 'Employee List',
+  'employee_Analytics' => 'Employee Analytics',
+  'total_Employee' => 'Total Employee',
+  'active_Employee' => 'Active Employee',
+  'inactive_Employee' => 'Inactive Employee',
+  'employee_Image' => 'Employee Image',
+  'accesses' => 'Accesses',
+  'date_of_Joining' => 'Date of Joining',
 );

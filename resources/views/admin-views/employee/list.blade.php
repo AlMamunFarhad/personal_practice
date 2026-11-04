@@ -88,13 +88,13 @@
                         </summary>
                         <ul class="absolute right-0 z-20 mt-2 min-w-40 rounded-xl border border-slate-200 bg-white p-1.5 shadow-lg dark:border-slate-700 dark:bg-[#121d30]">
                             <li>
-                                {{-- <a
+                                <a
                                     class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 transition hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
                                     href="{{ route('admin.employee.export', ['role' => request('admin_role_id'), 'searchValue' => request('searchValue')]) }}"
                                 >
                                     <img width="14" src="{{ asset('assets/back-end/img/excel.png') }}" alt="">
                                     {{ translate('excel') }}
-                                </a> --}}
+                                </a>
                             </li>
                         </ul>
                     </details>
