@@ -47,70 +47,6 @@
 
             <div class="px-4 pb-5 pt-7">
                 <p class="mb-3 px-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">Workspace</p>
-                {{-- <nav class="space-y-1">
-                    <a href="{{ route('admin.dashboard') }}"
-                        class="flex items-center gap-3 rounded-xl bg-blue-500/15 px-3 py-2.5 text-[13px] font-semibold text-blue-300 ring-1 ring-inset ring-blue-400/10">
-                        <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true">
-                            <rect x="3.5" y="3.5" width="7" height="7" rx="1.5" stroke="currentColor"
-                                stroke-width="1.7" />
-                            <rect x="13.5" y="3.5" width="7" height="7" rx="1.5" stroke="currentColor"
-                                stroke-width="1.7" />
-                            <rect x="3.5" y="13.5" width="7" height="7" rx="1.5" stroke="currentColor"
-                                stroke-width="1.7" />
-                            <rect x="13.5" y="13.5" width="7" height="7" rx="1.5" stroke="currentColor"
-                                stroke-width="1.7" />
-                        </svg>
-                        <span>Overview</span>
-                        <span class="ml-auto size-1.5 rounded-full bg-blue-300"></span>
-                    </a>
-                    <a href="{{ route('admin.dashboard') }}#orders"
-                        class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
-                        <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true">
-                            <path d="M5 7.5h14l1 12H4l1-12Z" stroke="currentColor" stroke-width="1.7"
-                                stroke-linejoin="round" />
-                            <path d="M9 8V6a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.7"
-                                stroke-linecap="round" />
-                        </svg>
-                        <span>Orders</span>
-                        <span
-                            class="ml-auto rounded-md bg-white/[0.08] px-1.5 py-0.5 text-[10px] text-slate-400">12</span>
-                    </a>
-                    <a href="{{ route('admin.dashboard') }}#customers"
-                        class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
-                        <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true">
-                            <path
-                                d="M16 20v-1.5a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V20m7.5-9a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm6-7.6a4 4 0 0 1 0 7.7m4.5 8.9v-1.5a4 4 0 0 0-3-3.9"
-                                stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
-                        </svg>
-                        <span>Customers</span>
-                    </a>
-                    <a href="{{ route('admin.dashboard') }}#products"
-                        class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
-                        <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true">
-                            <path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" stroke="currentColor" stroke-width="1.7"
-                                stroke-linejoin="round" />
-                            <path d="m4.5 7.8 7.5 4.4 7.5-4.4M12 12.5V21m-4-15.7 8 4.6" stroke="currentColor"
-                                stroke-width="1.7" stroke-linejoin="round" />
-                        </svg>
-                        <span>Products</span>
-                    </a>
-                    <a href="{{ route('admin.dashboard') }}#analytics"
-                        class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
-                        <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true">
-                            <path d="M4 19V5m0 14h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
-                            <path d="m7 15 4-4 3 2 5-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M16 7h3v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                        <span>Analytics</span>
-                        <span
-                            class="ml-auto rounded-md bg-indigo-400/10 px-1.5 py-0.5 text-[9px] font-semibold text-indigo-300">NEW</span>
-                    </a>
-
-                </nav> --}}
-
-
                 <nav class="space-y-1">
 
                     {{-- Overview --}}
@@ -146,7 +82,7 @@
                     </a>
 
                     {{-- Customers --}}
-                    <a href="{{ route('admin.dashboard') }}#customers"
+                    {{-- <a href="{{ route('admin.dashboard') }}#customers"
                         class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
                         <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true">
                             <path
@@ -154,7 +90,96 @@
                                 stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
                         </svg>
                         <span>Customers</span>
-                    </a>
+                    </a> --}}
+
+
+                    @php
+                        use App\Enums\ViewPaths\Admin\Customer;
+                        $customerMenuActive =
+                            Request::is('admin/customer/' . Customer::LIST [URI]);
+
+
+                            $customerListActive =
+                            Request::is('admin/customer/' . Customer::LIST [URI]) ||
+                            Request::is('admin/customer/' . Customer::VIEW[URI] . '*');
+                    @endphp
+
+                    {{-- Customers Menu --}}
+                    <div>
+
+                        {{-- Customers Parent Menu --}}
+                        <button type="button" onclick="toggleSidebarMenu('customer-submenu', 'customer-arrow')"
+                            class="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium transition
+        {{ $customerMenuActive ? 'bg-blue-500/15 text-blue-300' : 'text-slate-400 hover:bg-white/[0.06] hover:text-white' }}">
+
+                            <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true">
+                                <path
+                                    d="M16 20v-1.5a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V20m7.5-9a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm6-7.6a4 4 0 0 1 0 7.7m4.5 8.9v-1.5a4 4 0 0 0-3-3.9"
+                                    stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                            </svg>
+
+                            <span>{{ translate('customers') }}</span>
+
+                            <svg id="customer-arrow" viewBox="0 0 24 24" fill="none"
+                                class="ml-auto size-4 transition-transform duration-200 {{ $customerMenuActive ? 'rotate-180' : '' }}">
+
+                                <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+
+                        {{-- Customers --}}
+                        <div id="customer-submenu"
+                            class="{{ $customerMenuActive ? '' : 'hidden' }} ml-4 mt-1 space-y-1 border-l border-white/10 pl-3">
+
+                            {{-- Customer List --}}
+                            <a href="{{ route('admin.customer.list') }}"
+                                class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[12px] transition
+            {{ $customerListActive ? 'bg-blue-500/15 text-blue-300' : 'text-slate-400 hover:bg-white/[0.06] hover:text-white' }}">
+
+                                <span class="size-1.5 rounded-full bg-current"></span>
+                                <span>{{ translate('customer_List') }}</span>
+                            </a>
+
+                            {{-- Customer Reviews --}}
+                            {{-- <a href="{{ route('admin.reviews.list') }}"
+                                class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[12px] transition
+            {{ $customerReviewsActive ? 'bg-blue-500/15 text-blue-300' : 'text-slate-400 hover:bg-white/[0.06] hover:text-white' }}">
+
+                                <span class="size-1.5 rounded-full bg-current"></span>
+                                <span>{{ translate('customer_Reviews') }}</span>
+                            </a> --}}
+
+                            {{-- Wallet Report --}}
+                            {{-- <a href="{{ route('admin.customer.wallet.report') }}"
+                                class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[12px] transition
+            {{ $walletReportActive ? 'bg-blue-500/15 text-blue-300' : 'text-slate-400 hover:bg-white/[0.06] hover:text-white' }}">
+
+                                <span class="size-1.5 rounded-full bg-current"></span>
+                                <span>{{ translate('wallet') }}</span>
+                            </a> --}}
+
+                            {{-- Wallet Bonus Setup --}}
+                            {{-- <a href="{{ route('admin.customer.wallet.bonus-setup') }}"
+                                class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[12px] transition
+            {{ $walletBonusActive ? 'bg-blue-500/15 text-blue-300' : 'text-slate-400 hover:bg-white/[0.06] hover:text-white' }}">
+
+                                <span class="size-1.5 rounded-full bg-current"></span>
+                                <span>{{ translate('wallet_Bonus_Setup') }}</span>
+                            </a> --}}
+
+                            {{-- Loyalty Points --}}
+                            {{-- <a href="{{ route('admin.customer.loyalty.report') }}"
+                                class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[12px] transition
+            {{ $loyaltyActive ? 'bg-blue-500/15 text-blue-300' : 'text-slate-400 hover:bg-white/[0.06] hover:text-white' }}">
+
+                                <span class="size-1.5 rounded-full bg-current"></span>
+                                <span>{{ translate('loyalty_Points') }}</span>
+                            </a> --}}
+
+                        </div>
+                    </div>
+
 
                     {{-- Products --}}
                     <a href="{{ route('admin.dashboard') }}#products"
@@ -182,11 +207,12 @@
                         <span
                             class="ml-auto rounded-md bg-indigo-400/10 px-1.5 py-0.5 text-[9px] font-semibold text-indigo-300">NEW</span>
                     </a>
-
+                    @php
+                        use App\Enums\ViewPaths\Admin\Employee;
+                       @endphp
 
                     {{-- Employees --}}
                     @if(auth('admin')->user()->admin_role_id == 1)
-
                         @php
                             $employeeMenuActive = Request::is('admin/employee*') || Request::is('admin/custom-role*');
                         @endphp
@@ -196,7 +222,7 @@
                             {{-- Employees Parent Menu --}}
                             <button type="button" onclick="toggleSidebarMenu('employee-submenu', 'employee-arrow')"
                                 class="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium transition
-                                    {{ $employeeMenuActive ? 'bg-blue-500/15 text-blue-300' : 'text-slate-400 hover:bg-white/[0.06] hover:text-white' }}">
+                                        {{ $employeeMenuActive ? 'bg-blue-500/15 text-blue-300' : 'text-slate-400 hover:bg-white/[0.06] hover:text-white' }}">
 
                                 <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true">
                                     <path
@@ -218,18 +244,18 @@
                                 class="{{ $employeeMenuActive ? '' : 'hidden' }} ml-4 mt-1 space-y-1 border-l border-white/10 pl-3">
 
                                 {{-- Employee Role Setup --}}
-                                {{-- <a href="{{ route('admin.custom-role.create') }}"
+                                <a href="{{ route('admin.custom-role.create') }}"
                                     class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[12px] transition
-                                   {{ Request::is('admin/custom-role*') ? 'bg-blue-500/15 text-blue-300' : 'text-slate-400 hover:bg-white/[0.06] hover:text-white' }}">
+                                       {{ Request::is('admin/custom-role*') ? 'bg-blue-500/15 text-blue-300' : 'text-slate-400 hover:bg-white/[0.06] hover:text-white' }}">
 
                                     <span class="size-1.5 rounded-full bg-current"></span>
                                     <span>{{ translate('employee_Role_Setup') }}</span>
-                                </a> --}}
+                                </a>
 
                                 {{-- Employee List --}}
                                 <a href="{{ route('admin.employee.list') }}"
                                     class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[12px] transition
-                                   {{-- {{ Request::is('admin/employee/' . Employee::LIST[URI]) || Request::is('admin/employee/' . Employee::ADD[URI]) || Request::is('admin/employee/' . Employee::UPDATE[URI] . '*') ? 'bg-blue-500/15 text-blue-300' : 'text-slate-400 hover:bg-white/[0.06] hover:text-white' }}"> --}}
+                                       {{ Request::is('admin/employee/' . Employee::LIST [URI]) || Request::is('admin/employee/' . Employee::ADD[URI]) || Request::is('admin/employee/' . Employee::UPDATE[URI] . '*') ? 'bg-blue-500/15 text-blue-300' : 'text-slate-400 hover:bg-white/[0.06] hover:text-white' }}">
                                     <span class="size-1.5 rounded-full bg-current"></span>
                                     <span>{{ translate('employees') }}</span>
                                 </a>
