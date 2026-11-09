@@ -422,6 +422,8 @@
     </div>
     @yield('admin-runtime')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{ asset('assets/back-end/js/sweet_alert.js') }}"></script>
+    <script src="{{ asset('assets/back-end/js/custom.js') }}"></script>
 
     @stack('script')
     <script>

@@ -16,7 +16,8 @@
         "laravel/framework": "^13.17",
         "laravel/tinker": "^3.0",
         "maatwebsite/excel": "*",
-        "php-flasher/flasher-toastr-laravel": "^2.6"
+        "php-flasher/flasher-toastr-laravel": "^2.6",
+        "sweetalert2/laravel": "^1.4"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

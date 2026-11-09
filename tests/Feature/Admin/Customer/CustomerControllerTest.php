@@ -95,6 +95,24 @@ class CustomerControllerTest extends TestCase
         Storage::disk('public')->assertMissing('profile/deleted.webp');
     }
 
+    public function test_customer_status_can_be_updated_without_oauth_tables(): void
+    {
+        $this->withoutMiddleware([AdminMiddleware::class, ModulePermissionMiddleware::class]);
+        $customer = $this->createCustomer(image: '');
+
+        $response = $this->postJson(route('admin.customer.status-update'), [
+            'id' => $customer->id,
+            'status' => 0,
+        ]);
+
+        $response->assertOk()
+            ->assertJsonPath('message', translate('update_successfully'));
+        $this->assertDatabaseHas('users', [
+            'id' => $customer->id,
+            'is_active' => 0,
+        ]);
+    }
+
     public function test_customer_creation_rejects_non_image_uploads(): void
     {
         Storage::fake('public');

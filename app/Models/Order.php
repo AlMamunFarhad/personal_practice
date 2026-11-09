@@ -169,10 +169,10 @@ class Order extends Model
         return $this->hasOne(OrderDetail::class);
     }
 
-    public function customer(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'customer_id');
-    }
+    // public function customer(): BelongsTo
+    // {
+    //     return $this->belongsTo(User::class, 'customer_id');
+    // }
 
     public function shipping(): BelongsTo
     {

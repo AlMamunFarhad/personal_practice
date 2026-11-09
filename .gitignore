@@ -21,6 +21,8 @@
 /storage/*.key
 /storage/pail
 /vendor
+/public/assets/back-end/Apple-AuthKey.p8
+/public/assets/back-end/Apple-AuthKey (copy).txt
 _ide_helper.php
 Homestead.json
 Homestead.yaml

@@ -7973,4 +7973,5 @@ return [
     'role_updated_successfully' => 'Role updated successfully',
     'customer_added_successfully' => 'Customer added successfully',
     'preview' => 'Preview',
+    'customer_updated_successfully' => 'Customer updated successfully',
 ];

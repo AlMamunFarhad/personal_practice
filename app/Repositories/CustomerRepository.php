@@ -120,11 +120,4 @@ class CustomerRepository implements CustomerRepositoryInterface
             ->limit($dataLimit)
             ->get([DB::raw('id,IF(id <> "0", CONCAT(f_name, " ", l_name, " (", phone ,")"),CONCAT(f_name, " ", l_name)) as text')]);
     }
-
-    public function deleteAuthAccessTokens(string|int $id): bool
-    {
-        DB::table('oauth_access_tokens')->where('user_id', $id)->delete();
-
-        return true;
-    }
 }

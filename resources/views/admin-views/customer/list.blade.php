@@ -98,7 +98,7 @@
                             <th scope="col" class="whitespace-nowrap px-5 py-4">{{ translate('SL') }}</th>
                             <th scope="col" class="whitespace-nowrap px-5 py-4">{{ translate('customer_name') }}</th>
                             <th scope="col" class="whitespace-nowrap px-5 py-4">{{ translate('contact_info') }}</th>
-                            <th scope="col" class="whitespace-nowrap px-5 py-4">{{ translate('total_Order') }}</th>
+                            {{-- <th scope="col" class="whitespace-nowrap px-5 py-4">{{ translate('total_Order') }}</th> --}}
                             <th scope="col" class="whitespace-nowrap px-5 py-4 text-center">{{ translate('block') }} / {{ translate('unblock') }}</th>
                             <th scope="col" class="whitespace-nowrap px-5 py-4 text-center">{{ translate('action') }}</th>
                         </tr>
@@ -133,11 +133,11 @@
                                         {{ $customer->phone }}
                                     </a>
                                 </td>
-                                <td class="whitespace-nowrap px-5 py-4">
+                                {{-- <td class="whitespace-nowrap px-5 py-4">
                                     <span class="inline-flex min-w-9 items-center justify-center rounded-lg bg-blue-50 px-3 py-1.5 text-xs font-semibold text-blue-700 dark:bg-blue-500/15 dark:text-blue-300">
                                         {{ $customer->orders_count }}
                                     </span>
-                                </td>
+                                </td> --}}
                                 <td class="whitespace-nowrap px-5 py-4 text-center">
                                     @if ($customer['email'] == 'walking@customer.com')
                                         <span class="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 dark:bg-slate-700 dark:text-slate-300">
@@ -155,19 +155,20 @@
                                             <label class="relative inline-flex cursor-pointer items-center">
                                                 <input
                                                     type="checkbox"
-                                                    class="switcher_input toggle-switch-message peer sr-only"
+                                                    class="swal-status-toggle peer sr-only"
                                                     id="customer-status{{ $customer['id'] }}"
                                                     name="status"
                                                     value="1"
                                                     {{ $customer['is_active'] == 1 ? 'checked' : '' }}
-                                                    data-modal-id="toggle-status-modal"
-                                                    data-toggle-id="customer-status{{ $customer['id'] }}"
-                                                    data-on-image="customer-block-on.png"
-                                                    data-off-image="customer-block-off.png"
+                                                    data-current-status="{{ $customer['is_active'] ? '1' : '0' }}"
                                                     data-on-title="{{ translate('want_to_unblock').' '.$customer['f_name'].' '.$customer['l_name'].'?' }}"
                                                     data-off-title="{{ translate('want_to_block').' '.$customer['f_name'].' '.$customer['l_name'].'?' }}"
-                                                    data-on-message="<p>{{ translate('if_enabled_this_customer_will_be_unblocked_and_can_log_in_to_this_system_again') }}</p>"
-                                                    data-off-message="<p>{{ translate('if_disabled_this_customer_will_be_blocked_and_cannot_log_in_to_this_system') }}</p>"
+                                                    data-on-message="{{ translate('if_enabled_this_customer_will_be_unblocked_and_can_log_in_to_this_system_again') }}"
+                                                    data-off-message="{{ translate('if_disabled_this_customer_will_be_blocked_and_cannot_log_in_to_this_system') }}"
+                                                    data-confirm-button="{{ translate('confirm') }}"
+                                                    data-cancel-button="{{ translate('cancel') }}"
+                                                    data-error-title="{{ translate('error') }}"
+                                                    data-error-message="{{ translate('something_went_wrong') }}"
                                                 >
                                                 <span class="switcher_control relative h-6 w-11 rounded-full bg-slate-300 transition peer-checked:bg-blue-600 peer-focus-visible:ring-4 peer-focus-visible:ring-blue-500/20 after:absolute after:left-0.5 after:top-0.5 after:size-5 after:rounded-full after:bg-white after:shadow after:transition-transform after:content-[''] peer-checked:after:translate-x-5 dark:bg-slate-600 dark:peer-checked:bg-blue-500"></span>
                                             </label>
@@ -198,23 +199,29 @@
                                             </svg>
                                         </a>
                                         @if ($customer['id'] != '0')
-                                            <a
-                                                title="{{ translate('delete') }}"
-                                                aria-label="{{ translate('delete') }}"
-                                                class="delete-data delete inline-flex size-9 items-center justify-center rounded-lg border border-rose-200 text-rose-600 transition hover:bg-rose-50 focus:outline-none focus:ring-4 focus:ring-rose-500/10 dark:border-rose-500/30 dark:text-rose-300 dark:hover:bg-rose-500/10"
-                                                href="javascript:"
-                                                data-id="customer-{{ $customer['id'] }}"
+                                            <form
+                                                action="{{ route('admin.customer.delete', [$customer['id']]) }}"
+                                                method="POST"
+                                                id="customer-delete-form-{{ $customer['id'] }}"
                                             >
-                                                <svg viewBox="0 0 24 24" fill="none" class="size-4" aria-hidden="true">
-                                                    <path d="M4 7h16m-10 4v6m4-6v6M6 7l1 14h10l1-14M9 7V4h6v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-                                                </svg>
-                                            </a>
+                                                @csrf
+                                                @method('DELETE')
+                                                <button
+                                                    type="button"
+                                                    class="swal-confirm-submit inline-flex size-9 items-center justify-center rounded-lg border border-rose-200 text-rose-600 transition hover:bg-rose-50 focus:outline-none focus:ring-4 focus:ring-rose-500/10 dark:border-rose-500/30 dark:text-rose-300 dark:hover:bg-rose-500/10"
+                                                    data-swal-title="{{ translate('Are_you_sure_to_delete_this') }}?"
+                                                    data-swal-confirm="{{ translate('yes') }}"
+                                                    data-swal-cancel="{{ translate('cancel') }}"
+                                                    title="{{ translate('delete') }}"
+                                                    aria-label="{{ translate('delete') }}"
+                                                >
+                                                    <svg viewBox="0 0 24 24" fill="none" class="size-4" aria-hidden="true">
+                                                        <path d="M4 7h16m-10 4v6m4-6v6M6 7l1 14h10l1-14M9 7V4h6v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                                </button>
+                                            </form>
                                         @endif
                                     </div>
-                                    <form action="{{ route('admin.customer.delete', [$customer['id']]) }}" method="post" id="customer-{{ $customer['id'] }}">
-                                        @csrf
-                                        @method('delete')
-                                    </form>
                                 </td>
                             </tr>
                         @empty

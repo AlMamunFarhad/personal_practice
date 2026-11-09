@@ -127,19 +127,32 @@ class CustomerController extends BaseController
     public function updateStatus(Request $request): JsonResponse
     {
         $this->customerRepo->update(id: $request['id'], data: ['is_active' => $request->get('status', 0)]);
-        $this->customerRepo->deleteAuthAccessTokens(id: $request['id']);
 
         return response()->json(['message' => translate('update_successfully')]);
     }
 
+    // public function getView(Request $request, $id): View|RedirectResponse
+    // {
+    //     $customer = $this->customerRepo->getFirstWhere(params: ['id' => $id]);
+    //     if (isset($customer)) {
+    //         $orders = $this->orderRepo->getListWhere(searchValue: $request['searchValue'], filters: ['customer_id' => $id, 'is_guest' => '0']);
+
+    //         return view(Customer::VIEW[VIEW], ['customer' => $customer, 'orders' => $orders]);
+    //     }
+    //     Toastr::error(translate('customer_Not_Found'));
+
+    //     return back();
+    // }
     public function getView(Request $request, $id): View|RedirectResponse
     {
         $customer = $this->customerRepo->getFirstWhere(params: ['id' => $id]);
-        if (isset($customer)) {
-            $orders = $this->orderRepo->getListWhere(searchValue: $request['searchValue'], filters: ['customer_id' => $id, 'is_guest' => '0']);
 
-            return view(Customer::VIEW[VIEW], ['customer' => $customer, 'orders' => $orders]);
+        if (isset($customer)) {
+            return view(Customer::VIEW[VIEW], [
+                'customer' => $customer,
+            ]);
         }
+
         Toastr::error(translate('customer_Not_Found'));
 
         return back();
