@@ -3,10 +3,12 @@
 use App\Enums\ViewPaths\Admin\Customer;
 use App\Enums\ViewPaths\Admin\CustomRole;
 use App\Enums\ViewPaths\Admin\Employee;
+use App\Enums\ViewPaths\Admin\Category;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Customer\CustomerController;
 use App\Http\Controllers\Admin\Employee\CustomRoleController;
 use App\Http\Controllers\Admin\Employee\EmployeeController;
+use App\Http\Controllers\Admin\Product\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LoginController::class, 'rootLogin'])->name('login.form');
@@ -16,10 +18,10 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-
     Route::get('/logout', [LoginController::class, 'logout'])
         ->name('logout');
 
+    //   Employee
     Route::group(['prefix' => 'employee', 'as' => 'employee.'], function () {
         Route::controller(EmployeeController::class)->group(function () {
             Route::get(Employee::LIST[URI], 'index')->name('list');
@@ -35,6 +37,7 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
         });
 
     });
+    // Custom Role
     Route::group(['prefix' => 'custom-role', 'as' => 'custom-role.', 'middleware' => 'module:user_section'], function () {
         Route::controller(CustomRoleController::class)->group(function () {
             Route::get(CustomRole::ADD[URI], 'index')->name('create');
@@ -46,7 +49,7 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
             Route::get(CustomRole::EXPORT[URI], 'exportList')->name('export');
         });
     });
-
+    //   Customer
     Route::group(['prefix' => 'customer', 'as' => 'customer.', 'middleware' => ['module:user_section']], function () {
         Route::controller(CustomerController::class)->group(function () {
             Route::get(Customer::LIST[URI], 'getListView')->name('list');
@@ -60,11 +63,18 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
             Route::get(Customer::SEARCH[URI], 'getCustomerList')->name('customer-list-search');
             Route::get(Customer::SEARCH[URI], 'getCustomerList')->name('customer-list-search');
             Route::get(Customer::EXPORT[URI], 'exportList')->name('export');
-            // Route::get(Customer::SUBSCRIBER_LIST[URI], 'getSubscriberListView')->name('subscriber-list');
-            // Route::get(Customer::SUBSCRIBER_EXPORT[URI], 'exportSubscribersList')->name('subscriber-list.export');
-            // Route::get(Customer::EXPORT[URI], 'exportList')->name('export');
-            // Route::get(Customer::SEARCH[URI],'getCustomerList')->name('customer-list-search');
-            // Route::post(Customer::ADD[URI],'add')->name('add');
+        });
+    });
+
+    // Category
+    Route::group(['prefix' => 'category', 'as' => 'category.','middleware'=>['module:product_management']], function () {
+        Route::controller(CategoryController::class)->group(function (){
+            Route::get(Category::LIST[URI], 'index')->name('view');
+            Route::post(Category::ADD[URI], 'add')->name('store');
+            Route::get(Category::UPDATE[URI], 'getUpdateView')->name('update');
+            Route::post(Category::UPDATE[URI], 'update');
+            Route::post(Category::DELETE[URI], 'delete')->name('delete');
+            Route::post(Category::STATUS[URI], 'updateStatus')->name('status');
         });
     });
 

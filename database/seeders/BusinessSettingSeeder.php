@@ -55,5 +55,13 @@ class BusinessSettingSeeder extends Seeder
             ]
         );
 
+        DB::table('business_settings')->updateOrInsert(
+            ['type' => 'pnc_language'],
+            [
+                'value' => json_encode(['en']),
+                'updated_at' => now(),
+            ]
+        );
+
     }
 }

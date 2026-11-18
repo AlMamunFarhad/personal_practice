@@ -214,14 +214,16 @@
                                             <form
                                                 action="{{ route('admin.employee.delete', ['id' => $employee['id']]) }}"
                                                 method="POST"
-                                                onsubmit="return confirm(this.dataset.confirm)"
-                                                data-confirm="{{ translate('Are_you_sure_to_delete_this') }}?"
+                                                id="employee-delete-form-{{ $employee['id'] }}"
                                             >
                                                 @csrf
                                                 @method('DELETE')
                                                 <button
-                                                    type="submit"
-                                                    class="inline-flex size-9 items-center justify-center rounded-lg border border-rose-200 text-rose-600 transition hover:bg-rose-50 focus:outline-none focus:ring-4 focus:ring-rose-500/10 dark:border-rose-900/70 dark:text-rose-300 dark:hover:bg-rose-500/10"
+                                                    type="button"
+                                                    class="swal-confirm-submit inline-flex size-9 items-center justify-center rounded-lg border border-rose-200 text-rose-600 transition hover:bg-rose-50 focus:outline-none focus:ring-4 focus:ring-rose-500/10 dark:border-rose-900/70 dark:text-rose-300 dark:hover:bg-rose-500/10"
+                                                    data-swal-title="{{ translate('Are_you_sure_to_delete_this') }}?"
+                                                    data-swal-confirm="{{ translate('yes') }}"
+                                                    data-swal-cancel="{{ translate('cancel') }}"
                                                     title="{{ translate('delete') }}"
                                                     aria-label="{{ translate('delete') }}"
                                                 >

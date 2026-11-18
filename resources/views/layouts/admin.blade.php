@@ -66,6 +66,17 @@
                         </svg>
                         <span>Overview</span>
                     </a>
+                    {{-- Products --}}
+                    <a href="{{ route('admin.category.view') }}#categories"
+                        class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white">
+                        <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true">
+                            <path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" stroke="currentColor" stroke-width="1.7"
+                                stroke-linejoin="round" />
+                            <path d="m4.5 7.8 7.5 4.4 7.5-4.4M12 12.5V21m-4-15.7 8 4.6" stroke="currentColor"
+                                stroke-width="1.7" stroke-linejoin="round" />
+                        </svg>
+                        <span>Categories</span>
+                    </a>
 
                     {{-- Orders --}}
                     <a href="{{ route('admin.dashboard') }}#orders"
@@ -422,6 +433,7 @@
     </div>
     @yield('admin-runtime')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{ asset('assets/back-end/js/toastr.js') }}"></script>
     <script src="{{ asset('assets/back-end/js/sweet_alert.js') }}"></script>
     <script src="{{ asset('assets/back-end/js/custom.js') }}"></script>
 

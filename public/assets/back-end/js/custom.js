@@ -440,7 +440,9 @@ $('.delete-data').on('click',function (){
     })
 })
 
-$(document).on('click', '.swal-confirm-submit', function () {
+$(document).on('click', '.swal-confirm-submit', function (event) {
+    event.preventDefault();
+
     const button = this;
     const form = button.closest('form');
 
@@ -494,7 +496,7 @@ $(document).on('change', '.swal-status-toggle', function () {
         }).done(function (response) {
             toggle.dataset.currentStatus = isActive ? '1' : '0';
             Swal.fire({
-                title: response.message,
+                title: response.message || toggle.dataset.successMessage,
                 type: 'success',
                 timer: 1400,
                 showConfirmButton: false
@@ -890,11 +892,19 @@ function printDiv(divName) {
 $(".form-system-language-tab").on('click', function (e) {
     e.preventDefault();
     $(".form-system-language-tab").removeClass('active');
-    $(".form-system-language-form").addClass('d-none');
+    $(".form-system-language-tab")
+        .removeClass('border-blue-600 bg-blue-50 text-blue-700 dark:border-blue-400 dark:bg-blue-500/10 dark:text-blue-300')
+        .addClass('border-transparent text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800')
+        .attr('aria-selected', 'false');
+    $(".form-system-language-form").addClass('d-none hidden').attr('hidden', true);
     $(this).addClass('active');
+    $(this)
+        .removeClass('border-transparent text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800')
+        .addClass('border-blue-600 bg-blue-50 text-blue-700 dark:border-blue-400 dark:bg-blue-500/10 dark:text-blue-300')
+        .attr('aria-selected', 'true');
     let form_id = this.id;
     let lang = form_id.split("-")[0];
-    $("#" + lang + "-form").removeClass('d-none');
+    $("#" + lang + "-form").removeClass('d-none hidden').removeAttr('hidden');
 });
 $('.logout').on('click',function (){
     let getText = $('#get-logout-text');
